@@ -1,0 +1,139 @@
+.hollisPlus {
+    display: table-cell;
+}
+
+.boxHollis {
+    padding-top:5px;
+    margin-left:34px;
+    white-space: nowrap;
+}
+
+.hollisPlus prm-logo .logo-image, prm-logo img {
+    max-height: 100%;
+    height: 82px;
+    width: 110px;
+    margin-top: 10px;
+}
+
+prm-main-menu[menu-type=menu] .top-nav-bar-links .md-button.button-over-dark {
+    color:#000;
+}
+
+prm-topbar #more-links-button prm-icon {
+    color:#000;
+
+}
+prm-main-menu .buttons-group .md-button {
+    box-shadow:none;
+}
+prm-main-menu .buttons-group .md-button:first-child {
+    box-shadow:none;
+}
+.buttons-group .md-button:first-child {
+    box-shadow:none;
+}
+.betaIcon {
+    display: table-cell;
+}
+
+.betaIcon > img {
+    width:33px;
+    height:auto;
+    padding-bottom:10px;
+}
+
+.topMenu {
+    background:#ffffff;
+    color: #000000 !important;
+    height:50px;
+}
+
+.hollisLogo {
+    margin-bottom:-5px;
+}
+
+
+prm-topbar {
+    background-color:#000000;
+}
+
+prm-topbar > div.top-nav-bar {
+    background-color:#ffffff;
+}
+.prm-topbar .md-button .md-button.button-over-dark {
+    color:#000;
+}
+
+#hollisLogoTopbar {
+    font-size:40px;
+    vertical-align: top;
+    padding-left: 10px;
+}
+a#hollisLogoTopbar {
+    color:#000;
+    font-family:"Trueno";
+}
+prm-search-bar {
+    background: linear-gradient(-46deg,#eb001b 0%,#a51c30 100%);
+}
+
+/* magnify glass search in search box */
+div.search-actions > .md-button.button-confirm {
+    color:#a51c30;
+}
+
+.customTopMenu {
+    position: absolute;
+    top:-50px;
+    width:100%;
+    height:50px;
+    line-height:50px;
+}
+
+.customMenu {
+    text-align: right;
+}
+
+.customMenu a {
+    margin-right:15px;
+}
+
+.paddingleft15 {
+    padding-left:15px;
+}
+
+.paddingleft35 {
+    padding-left:35px;
+}
+
+
+.marginRight20 {
+    margin-right:20px;
+}
+
+
+div.search-actions > .md-button.button-confirm:hover {
+    color:#a51c30;
+}
+
+.hv-menu {
+    color:#000000;
+    padding:5px;
+}
+
+.hv-menu:hover {
+    color:#000000;
+}
+/* hide switch to adv search from basic, b/c in top bar now */
+.search-switch-buttons .switch-to-advanced {
+    display:none;
+}
+prm-search-bookmark-filter .md-button {
+    background-color:grey;
+}
+prm-user-area .md-button.user-menu-button {
+    color:#000;
+}
+prm-user-area .user-menu-button .user-name {
+    color:#3d6e94;
+}

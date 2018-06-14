@@ -1,0 +1,44 @@
+#textsms {
+   padding:5px;
+   cursor: pointer;
+   z-index:10;
+   color:#5F5F5F;
+   font-weight: 300;
+}
+
+
+#textsms .row {
+    text-align: center;
+    cursor: pointer;
+}
+
+#textsms .button-text {
+    font-size:10px;
+    line-height:14px;
+    font-weight:600;
+    cursor: pointer;
+}
+
+#textsms:hover {
+    color:#5F5F5F;
+}
+
+
+#textsms .row:hover {
+    background:#e1e1e1;
+    color:#5F5F5F;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+#textsms svg  {
+    fill:#7b8995;
+}
+
+#textsms .textsms-info {
+    font-weight: bold;
+}
+
+
