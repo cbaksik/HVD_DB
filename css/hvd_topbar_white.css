@@ -73,14 +73,7 @@ a#hollisLogoTopbar {
     color:#000;
     font-family:"Trueno";
 }
-prm-search-bar {
-    background: linear-gradient(-46deg,#eb001b 0%,#a51c30 100%);
-}
 
-/* magnify glass search in search box */
-div.search-actions > .md-button.button-confirm {
-    color:#a51c30;
-}
 
 .customTopMenu {
     position: absolute;
@@ -129,11 +122,18 @@ div.search-actions > .md-button.button-confirm:hover {
     display:none;
 }
 prm-search-bookmark-filter .md-button {
-    background-color:grey;
+    background-color:#307986;
 }
 prm-user-area .md-button.user-menu-button {
     color:#000;
 }
 prm-user-area .user-menu-button .user-name {
     color:#3d6e94;
+}
+.md-button:hover:not([disabled]), .md-button.button-over-dark:hover:not([disabled]) {
+    /*background-color:#3d6e94;*/
+    color:#3d6e94;
+}
+prm-search-bookmark-filter .fixed-to-top #favorites-button {
+    color:#fff;
 }

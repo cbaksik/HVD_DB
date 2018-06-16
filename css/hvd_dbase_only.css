@@ -1,0 +1,43 @@
+/* to hide login prompt */
+prm-alert-bar {
+    display:none;
+}
+#magnifying-glass {
+    color: #a51c30 !important;
+}
+/* home page */
+#dbase_home_intro {
+    display:block;
+    clear:both;
+    font-size:150%;
+    margin-top:15px;
+    font-weight: normal;
+    margin: 15px 0px 15px 8px;
+}
+#dbase_homepage > div {
+    max-width: 100%;
+}
+#dbase_homepage md-card {
+    width: 50%;
+}
+#dbase_homepage md-card md-card-title {
+    flex: 0 1 auto;
+}
+
+ul.dbase_list {
+    margin-top:0px;
+    padding-left: 0px;
+}
+ul.dbase_list li {
+    list-style-type: none;
+    line-height: 1.6;
+}
+a#dbmiscat {
+    font-size:125%;
+}
+prm-personalize-results-button {
+    display:none;
+}
+prm-login-alma-mashup {
+    display:none;
+}
