@@ -41,3 +41,31 @@ prm-personalize-results-button {
 prm-login-alma-mashup {
     display:none;
 }
+/* hide type icon from search result, and type name */
+prm-brief-result-container .result-item-image {
+    display: none;
+}
+prm-brief-result-container .media-content-type {
+    display: none;
+}
+/* hide NET AVA line
+first child doesn't hide, both AVA and online get selected 
+prm-search-result-availability-line > div :first-child {
+    display:none;
+}*/
+prm-search-result-availability-line prm-icon[icon-definition="book-open"] {
+    display:none;
+}
+prm-search-result-availability-line button[title*="Check holdings"] {
+    display:none;
+}
+prm-search-result-availability-line button[title*="Networked Resource"] {
+    display:none;
+}
+div#getit_link1_1 {
+    display:none;
+}
+/* need to also hide from left nav on page */
+#services-index button[aria-label*="Get It"] {
+    display:none;
+}

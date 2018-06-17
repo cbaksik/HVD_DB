@@ -1047,8 +1047,36 @@ md-backdrop.md-opaque {
 md-backdrop.md-opaque {
     opacity: .7;
 }
-/* end app background */
+/* changing size of flexes to increase width for facets */
+prm-facet .primo-scrollbar {
+    width:auto;
+}
+@media (max-width: 1919px) and (min-width: 1280px) {}
+    .flex-lg-5, .layout-row>.flex-lg-5 {
+        flex: 1 1 0%;
+        max-width: 0%;
+    }
+    .flex-lg-20, .layout-lg-row>.flex-lg-20, .layout-row>.flex-lg-20 {
+        -ms-flex: 1 1 30%;
+        flex: 1 1 30%;
+        max-width: 30%;
+    }
+}
 
+/* end app background */
+/* home page */
+.md-headline {
+    font-weight:400;
+}
+md-card.default-card {
+    box-shadow;1px 1px 0px 1px rgba(0,0,0,.03), 0px 5px 5px -3px rgba(0,0,0,.07)
+    padding-bottom: 10px;
+}
+/*** note - 
+this is the OTB blue of the search result title #44707b
+this is the blue of the home page link AA compliant over light grey: #026DB9
+portal basic link: #0579b8 
+ */
 
 /* for background of overlay menu from top nav ... */
 /*md-content.md-primoExplore-theme md-dialog.light-on-dark-dialog {
@@ -1056,6 +1084,12 @@ md-backdrop.md-opaque {
  }*/
  md-content.overlay-menu-content {
     background-color: rgba(56,56,61,.7);
+}
+md-content.overlay-menu-content span.md-headline {
+    text-transform:none;
+}
+md-content.overlay-menu-content span.md-subhead {
+    display:none;
 }
 /* my favorites global action icons disabled */
 prm-favorites-tool-bar .disabledFavTool {
@@ -1069,10 +1103,10 @@ prm-favorites-edit-labels-menu .disabledFavTool {
 .bar.alert-bar {
     letter-spacing: 1px;
     background-color: #f1f1f1;
-    border-color: #bbb8b8;
+    border-color:#ebe9e9;
 }
 .bar prm-authentication .md-button {
-    color: #3d6e94;
+    color: #026DB9;
     font-weight:bold;
     padding-bottom: 1px;
 }
@@ -1083,23 +1117,27 @@ prm-favorites-edit-labels-menu .disabledFavTool {
 }
 
 prm-personalize-results-button md-switch ._md-thumb:before {
-    border: 1px solid #187474;
+    border: 1px solid #44707b;
 }
 prm-search-result-list prm-personalize-results-button .md-button md-switch ._md-bar {
-    background-color: #187474;
+    background-color: #44707b;
 }
 /* search results */
+/* title link */
+/* this seemed way to bright; prm-brief-result .item-title span {
+    color: #0579b8;
+} */
 /* ava line */
 [class*="available"] > span, [class*="unavailable"] > span , [class*="check_"] > span {
     color:#44707b;
 }
-/* for: check holdings */
-[class*="check_"] {
-    color:#716F6F;
-}
 /* for "how to get it */
 [class*="no_"] {
     color:#44707b;
+}
+/* for: check holdings */
+[class*="check_"], [class*="_unknown"], [class*="may_"], [class*="does_not_exist"]  {
+    color:#716F6F;
 }
 
 prm-search-result-availability-line span {
@@ -1107,12 +1145,15 @@ prm-search-result-availability-line span {
     display: inline;
     color: #44707b;
 }
-/* page nav search results */
+/* page navigation search results */
 prm-page-nav-menu .counter-main md-fab-trigger .md-button {
     box-shadow:5px 0 5px -3px rgba(0,0,0,.5), -5px 0 5px -3px rgba(0,0,0,.5);
-    color:#026DB9;
+    color:#0579b8;
 }
-/* page nav browse search */
+prm-page-nav-menu .counter-nav prm-icon md-icon svg {
+    color:#0579b8;
+}
+/* page navigation browse search */
 prm-page-nav-menu .page-nav-inner:after {
     box-shadow:0 1px 3px -1px rgba(0,0,0,.7), 0 0 20px 0 rgba(0,0,0,.7);
 }
@@ -1135,10 +1176,18 @@ prm-facet-range {
 }
 prm-facet-range md-input-container {
     margin-right:10px;
+    
 }
 input[aria-label="From date"] ,input[aria-label="To date"] {
-    border:1px solid #b8babb;
     padding:5px;
+    border-radius: 3px;
+    border: 1px solid transparent;
+    border-top: none;
+    border-bottom: 1px solid #ddd;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,.39), 0 -1px 1px #FFF, 0 1px 0 #FFF;
+    background-color: white;
+    max-width:60px;
+
 }
 input[aria-label="From date"]::-webkit-inner-spin-button,input[aria-label="From date"]::-webkit-outer-spin-button {
     -webkit-appearance: none; 
@@ -1155,26 +1204,34 @@ prm-full-view div.full-view-container prm-full-view-service-container prm-search
 }
 /* browse result */
 prm-browse-search md-list.prm-list.prm-linkable-list-items md-list-item .item-title, md-list.prm-list.prm-linkable-list-items md-list-item .item-title {
-    color:#2f4d54;
+    color:#0579b8;
 }
 prm-browse-search md-list.prm-list.prm-linkable-list-items md-list-item ._md-list-item-inner {
     background-color:#fff;
     border-bottom:1px solid #b8babb;
     padding: 0em 0.2em;
-    color:#44707b;
+    color:#0579b8;
 }
 prm-browse-search md-list.prm-list.prm-linkable-list-items md-list-item>.md-button > a {
-    color:#026DB9;
+    color:#0579b8;
 }
 prm-browse-search md-list.prm-list.prm-linkable-list-items md-list-item>.md-button > a:hover {
-    color:#026DB9;
+    color:#0579b8;
     background-color:#f3f3f3;
     opacity:.5;
 }
 prm-browse-search md-list.prm-list.prm-linkable-list-items.prm-dense-list md-list-item .item-title prm-highlight > span:hover {
-    color:#026DB9;
+    color:#0579b8;
 }
-
+/* my account */
+prm-account-overview md-input-container md-select {
+    padding:5px;
+    border-radius: 3px;
+    border: 1px solid transparent;
+    border-top: none;
+    border-bottom: 1px solid #ddd;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,.39), 0 -1px 1px #FFF, 0 1px 0 #FFF;
+}
 /* to hide login prompt */
 prm-alert-bar {
     display:none;
@@ -1218,6 +1275,34 @@ prm-personalize-results-button {
 prm-login-alma-mashup {
     display:none;
 }
+/* hide type icon from search result, and type name */
+prm-brief-result-container .result-item-image {
+    display: none;
+}
+prm-brief-result-container .media-content-type {
+    display: none;
+}
+/* hide NET AVA line
+first child doesn't hide, both AVA and online get selected 
+prm-search-result-availability-line > div :first-child {
+    display:none;
+}*/
+prm-search-result-availability-line prm-icon[icon-definition="book-open"] {
+    display:none;
+}
+prm-search-result-availability-line button[title*="Check holdings"] {
+    display:none;
+}
+prm-search-result-availability-line button[title*="Networked Resource"] {
+    display:none;
+}
+div#getit_link1_1 {
+    display:none;
+}
+/* need to also hide from left nav on page */
+#services-index button[aria-label*="Get It"] {
+    display:none;
+}
 prm-search-bar {
     background: linear-gradient(-46deg,#555353 0%,#000 100%);
 }
@@ -1246,20 +1331,22 @@ prm-search-bar div.search-elements-wrapper div.simple-search-wrapper div.search-
 }
 
 .boxHollis {
-    padding-top:5px;
+    padding-top:8px;
     margin-left:34px;
     white-space: nowrap;
 }
 
 .hollisPlus prm-logo .logo-image, prm-logo img {
     max-height: 100%;
-    height: 82px;
+    height: 75px;
     width: 110px;
     margin-top: 10px;
 }
 
 prm-main-menu[menu-type=menu] .top-nav-bar-links .md-button.button-over-dark {
     color:#000;
+    padding-right: 25px;
+    padding-left: 25px;
 }
 
 prm-topbar #more-links-button prm-icon {
@@ -1365,20 +1452,31 @@ div.search-actions > .md-button.button-confirm:hover {
     display:none;
 }
 prm-search-bookmark-filter .md-button {
-    background-color:#307986;
+    background-color:#44707b;
 }
 prm-user-area .md-button.user-menu-button {
     color:#000;
 }
 prm-user-area .user-menu-button .user-name {
-    color:#3d6e94;
+    color:#026DB9;
 }
 .md-button:hover:not([disabled]), .md-button.button-over-dark:hover:not([disabled]) {
     /*background-color:#3d6e94;*/
-    color:#3d6e94;
+    color:#0579b8;
 }
 prm-search-bookmark-filter .fixed-to-top #favorites-button {
     color:#fff;
+}
+/* bar that takes over when you click sign in */
+prm-user-area md-fab-toolbar.md-is-open md-fab-trigger .md-fab-toolbar-background, prm-user-area md-fab-toolbar.md-is-open md-fab-trigger ._md-fab-toolbar-background {
+    background-color:#fff !important;
+}
+prm-user-area .md-fab-action-item {
+    background-color:#0579b8;
+}
+prm-user-area md-fab-toolbar .md-fab-action-item .md-button,  prm-user-area md-fab-toolbar .md-fab-action-item md-input-container, prm-user-area md-fab-toolbar .md-fab-action-item md-input-container md-select {
+    /*color:#44707b;*/
+    font-weight:600;
 }
 
 .hvfullsize {
