@@ -8,12 +8,35 @@
     white-space: nowrap;
 }
 
+#hlLogoHeader {
+    cursor: pointer;
+    display: block;
+}
+
+#hlLogoHeader:hover {
+   text-decoration: none;
+   background: transparent;
+}
+
+.objectTag {
+    cursor: pointer;
+    pointer-events: none;
+    z-index: -1;
+    max-height:100%;
+    width:110px;
+    height: 75px;
+    margin-top:10px;
+}
+
+
+/*
 .hollisPlus prm-logo .logo-image, prm-logo img {
     max-height: 100%;
     height: 75px;
     width: 110px;
     margin-top: 10px;
 }
+*/
 
 prm-main-menu[menu-type=menu] .top-nav-bar-links .md-button.button-over-dark {
     color:#000;
@@ -68,15 +91,16 @@ prm-topbar > div.top-nav-bar {
 }
 
 #hollisLogoTopbar {
-    font-size:42px;
+    display: table-cell;
     vertical-align: top;
     padding-left: 10px;
 }
-a#hollisLogoTopbar {
+
+#hollisLogoTopbar a {
     color:#000;
     font-family:"Trueno";
+    font-size:42px;
 }
-
 
 .customTopMenu {
     position: absolute;
