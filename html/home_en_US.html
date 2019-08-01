@@ -10,24 +10,20 @@
         <md-card class="default-card">
             <md-card-title>
                 <md-card-title-text>
-                    <h2><span class="md-headline">Most Popular</span></h2>
+                    <h2><span class="md-headline">Top picks</span></h2>
                 </md-card-title-text>
             </md-card-title>
             <md-card-content>
                <ul class="dbase_list">
-                    <li> <a href="http://nrs.harvard.edu/urn-3:hul.eresource:ebscoasp" onclick="ga('send', 'event', 'QuickJump','Academic Search Premier (EBSCOhost)');">Academic Search Premier</a></li> 
-                    
-                    <li> <a href="http://nrs.harvard.edu/urn-3:hul.eresource:gscholar" onclick="ga('send', 'event', 'QuickJump','Google Scholar (Harvard PIN required)');">Google Scholar</a></li> 
-
-                    <li> <a href="http://nrs.harvard.edu/urn-3:hul.eresource:jstorage" onclick="ga('send', 'event', 'QuickJump','JSTOR (Access to selected journals, excluding recent issues)');">JSTOR</a></li> 
-
-                    <li> <a href="http://nrs.harvard.edu/urn-3:hul.eresource:projmuse" onclick="ga('send', 'event', 'QuickJump','Project Muse');">Project Muse</a></li> 
-                    
-                    <li> <a href="http://nrs.harvard.edu/urn-3:hul.eresource:pubmedpi" onclick="ga('send', 'event', 'QuickJump','PubMed with full text (MEDLINE) (Harvard PIN required)');">PubMed</a></li> 
-
-                    <li> <a href="http://nrs.harvard.edu/urn-3:hul.eresource:scicitin" onclick="ga('send', 'event', 'QuickJump','Citation Indexes / Web of Science');">Web of Science</a></li> 
-
-               </ul>             
+                    <li> <a href="http://nrs.harvard.edu/urn-3:hul.eresource:ebscoasp">Academic Search Premier</a></li>                     
+                    <li> <a href="http://nrs.harvard.edu/urn-3:hul.eresource:gscholar">Google Scholar</a></li> 
+                    <li> <a href="http://nrs.harvard.edu/urn-3:hul.eresource:jstorage">JSTOR</a></li> 
+                    <!-- <li> <a href="http://nrs.harvard.edu/urn-3:hul.eresource:nexisuni">Nexis Uni</a></li>  -->
+                    <!-- <li> <a href="http://nrs.harvard.edu/urn-3:hul.eresource:projmuse">Project Muse</a></li> -->
+                    <li> <a href="http://nrs.harvard.edu/urn-3:hul.eresource:pubmedpi">PubMed</a></li> 
+                    <li> <a href="http://nrs.harvard.edu/urn-3:hul.eresource:scicitin"">Web of Science</a></li> 
+               </ul>  
+               <p><a href="#topDBlist">See more top databases</a></p>           
             </md-card-content>
         </md-card>
 
@@ -40,8 +36,8 @@
             <md-card-content>
                 <ul class="dbase_list">
                     <li> <a href="https://library.harvard.edu/alumni-resources">Alumni Resources</a></li> 
-                    <li> <a target="_current" href="/primo-explore/search?query=any,contains,01HVD_ALMA&tab=databases&search_scope=default_scope&sortby=rank&vid=HVD_DB&facet=newrecords,include,90%20days%20back&lang=en_US&offset=0">Newly Added</a></li> 
-                    <li> <a target="_current"  href="/primo-explore/search?query=any,contains,01HVD_ALMA&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0">View All Databases</a></li> 
+                    <li> <a target="_current" href="/primo-explore/search?query=any,contains,01HVD_ALMA&tab=databases&search_scope=default_scope&sortby=rank&vid=HVD_DB&facet=newrecords,include,90%20days%20back&lang=en_US&offset=0&sortby=title">Newly Added</a></li> 
+                    <li> <a target="_current"  href="/primo-explore/search?query=any,contains,01HVD_ALMA&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0&sortby=title">View All Databases</a></li> 
                     <li> <a href="http://library.harvard.edu/database-feedback">Report a Problem</a></li> 
                 </ul>
             </md-card-content>
@@ -60,51 +56,98 @@
                         </md-card-title>
                         <md-card-content>
                             <ul class="dbase_list">
-                                <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,General&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0">Multidisciplinary</a></li>
+                                <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,General&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0&sortby=title">Multidisciplinary</a></li>
                             </ul>
                             <ul class="dbase_list">
-                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,African Studies&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0">African Studies</a></li>
-                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,African-American Studies&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0">African-American Studies</a></li>
-                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,Agriculture&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0">Agriculture</a></li>
-                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,Anthropology and Archaeology&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0">Anthropology and Archaeology</a></li>
-                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,Arts and Architecture&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0">Arts and Architecture</a></li>
-                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,Asian Studies&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0">Asian Studies</a></li>
-                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,Astronomy and Space Sciences&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0">Astronomy and Space Sciences</a></li>
-                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,Biology&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0">Biology</a></li>
-                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,Business and Management&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0">Business and Management</a></li>
-                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,Chemistry&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0">Chemistry</a></li>
-                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,Classics and Medieval Studies&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0">Classics and Medieval Studies</a></li>
-                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,Computer Science&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0">Computer Science</a></li>
-                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,Economics&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0">Economics</a></li>
-                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,Education&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0">Education</a></li>
-                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,Engineering&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0">Engineering</a></li>
-                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,Environmental Science&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0">Environmental Science</a></li>
-                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,Film, TV and Theater&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0">Film, TV and Theater</a></li>
-                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,Gender Studies&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0">Gender Studies</a></li>
-                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,Geography&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0">Geography</a></li>
-                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,Geology&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0">Geology</a></li>
-                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,History&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0">History</a></li>
-                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,History of Science&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0">History of Science</a></li>
-                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,Indigenous Studies&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0">Indigenous Studies</a></li>
-                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,Information Science&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0">Information Science</a></li>
-                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,Jewish Studies&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0">Jewish Studies</a></li>
-                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,Language and Literature&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0">Language and Literature</a></li>
-                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,Latin American/Hispanic resources&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0">Latin American/Latino Studies</a></li>
-                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,Law&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0">Law</a></li>
-                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,Mathematics&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0">Mathematics</a></li>
-                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,Medicine and Public Health&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0">Medicine and Public Health</a></li>
-                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,Middle Eastern Studies&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0">Middle Eastern Studies</a></li>
-                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,Music&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0">Music</a></li>
-                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,Oceanography&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0">Oceanography</a></li>
-                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,Philosophy and Religion&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0">Philosophy and Religion</a></li>
-                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,Physics&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0">Physics</a></li>
-                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,Political Science, Government and Policy&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0">Political Science, Government and Policy</a></li>
-                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,Psychology&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0">Psychology</a></li>
-                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,Slavic Studies&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0">Slavic Studies</a></li>
-                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,Sociology&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0">Sociology</a></li>
+                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,African Studies&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0&sortby=title">African Studies</a></li>
+                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,African-American Studies&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0&sortby=title">African-American Studies</a></li>
+                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,Agriculture&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0&sortby=title">Agriculture</a></li>
+                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,Anthropology and Archaeology&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0&sortby=title">Anthropology and Archaeology</a></li>
+                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,Arts and Architecture&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0&sortby=title">Arts and Architecture</a></li>
+                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,East Asian Studies&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0&sortby=title">Asian Studies - East</a></li>
+                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,South and Southeast Asian Studies&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0&sortby=title">Asian Studies - South and Southeast</a></li>
+                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,Astronomy and Space Sciences&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0&sortby=title">Astronomy and Space Sciences</a></li>
+                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,Biology&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0&sortby=title">Biology</a></li>
+                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,Business and Management&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0&sortby=title">Business and Management</a></li>
+                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,Chemistry&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0&sortby=title">Chemistry</a></li>
+                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,Classics and Medieval Studies&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0&sortby=title">Classics and Medieval Studies</a></li>
+                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,Computer Science&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0&sortby=title">Computer Science</a></li>
+                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,Economics&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0&sortby=title">Economics</a></li>
+                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,Education&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0&sortby=title">Education</a></li>
+                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,Engineering&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0&sortby=title">Engineering</a></li>
+                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,Environmental Science&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0&sortby=title">Environmental Studies</a></li>
+                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,Film, TV and Theater&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0&sortby=title">Film, TV and Theater</a></li>
+                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,Gender Studies&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0&sortby=title">Gender Studies</a></li>
+                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,Geography&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0&sortby=title">Geography</a></li>
+                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,Geology&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0&sortby=title">Geology</a></li>
+                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,History&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0&sortby=title">History</a></li>
+                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,History of Science&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0&sortby=title">History of Science</a></li>
+                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,Indigenous Studies&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0&sortby=title">Indigenous Studies</a></li>
+                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,Information Science&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0&sortby=title">Information Science</a></li>
+                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,Jewish Studies&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0&sortby=title">Jewish Studies</a></li>
+                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,Language and Literature&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0&sortby=title">Language and Literature</a></li>
+                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,Latin American/Hispanic resources&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0&sortby=title">Latin American/Latino Studies</a></li>
+                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,Law&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0&sortby=title">Law</a></li>
+                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,Mathematics&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0&sortby=title">Mathematics</a></li>
+                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,Medicine and Public Health&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0&sortby=title">Medicine and Public Health</a></li>
+                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,Middle Eastern Studies&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0&sortby=title">Middle Eastern Studies</a></li>
+                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,Music&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0&sortby=title">Music</a></li>
+                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,News&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0&sortby=title">News and Media Studies</a></li>
+                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,Oceanography&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0&sortby=title">Oceanography</a></li>
+                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,Philosophy&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0&sortby=title">Philosophy</a></li>
+                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,Physics&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0&sortby=title">Physics</a></li>
+                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,Political Science, Government and Policy&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0&sortby=title">Political Science, Government and Policy</a></li>
+                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,Psychology&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0&sortby=title">Psychology</a></li>
+                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,Religion&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0&sortby=title">Religion</a></li>
+                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,Slavic Studies&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0&sortby=title">Slavic Studies</a></li>
+                                    <li><a target="_current"  href="/primo-explore/search?query=lsr39,exact,Sociology&tab=databases&search_scope=default_scope&vid=HVD_DB&lang=en_US&offset=0&sortby=title">Sociology</a></li>
                             </ul>
-                            <a target="_current" id="dbmiscat" href="https://harvard.az1.qualtrics.com/jfe/form/SV_1RK0xjzyUZFgEjb">Report a miscategorized database</a>
+                            <!-- <a target="_current" id="dbmiscat" href="https://harvard.az1.qualtrics.com/jfe/form/SV_1RK0xjzyUZFgEjb">Report a miscategorized database</a> -->
                         </md-card-content>
                     </md-card>
             </div>
+</md-content>
+
+<md-content>
+    <div flex-xs flex="100" layout="column">
+        <md-card class="default-card">
+                <md-card-title>
+                    <md-card-title-text>
+                        <h2 id="topDBlist"><span class="md-headline">Top Databases</span></h2>
+                    </md-card-title-text>
+                </md-card-title>
+                <md-card-content>
+                    <ul class="dbase_list">
+                            <li> <a href="http://nrs.harvard.edu/urn-3:hul.eresource:ebscoasp">Academic Search Premier</a></li>                     
+                            <li> <a href="http://nrs.harvard.edu/urn-3:hul.eresource:artstorx">ARTStor</a></li>         
+                            <li> <a href="http://nrs.harvard.edu/urn-3:hul.eresource:buscompl">Business Source Complete</a></li>  
+                            <li> <a href="http://nrs.harvard.edu/urn-3:hul.eresource:dashrepo">DASH</a></li>  
+                            <li> <a href="http://nrs.harvard.edu/urn-3:hul.eresource:dissabst">Dissertations and Theses (ProQuest)</a></li>    
+                            <li> <a href="http://nrs.harvard.edu/urn-3:hul.eresource:factivac">Factiva</a></li>    
+                            <li> <a href="http://nrs.harvard.edu/urn-3:hul.eresource:ebscoedu">Education 3-in-1 Search (EBSCO)</a></li>   
+                            <li> <a href="http://nrs.harvard.edu/urn-3:hul.eresource:googlebk">Google Books</a></li>     
+                            <li> <a href="http://nrs.harvard.edu/urn-3:hul.eresource:gscholar">Google Scholar</a></li>    
+                            <li> <a href="http://nrs.harvard.edu/urn-3:hul.eresource:harvmitd">Harvard Dataverse</a></li>   
+                            <li> <a href="http://nrs.harvard.edu/urn-3:hul.eresource:hathitrust">HathiTrust</a></li>     
+                            <li> <a href="http://nrs.harvard.edu/urn-3:hul.eresource:ProQuestNewspapers">Historical Newspapers (ProQuest)</a></li>  
+                            <li> <a href="http://nrs.harvard.edu/urn-3:hul.eresource:jstorage">JSTOR</a></li>      
+                            <li> <a href="http://nrs.harvard.edu/urn-3:hul.eresource:Kanopy">Kanopy</a></li>  
+                            <li> <a href="http://nrs.harvard.edu/urn-3:hul.eresource:mlabibli">MLA International Bibliography</a></li>  
+                            <li> <a href="http://nrs.harvard.edu/urn-3:hul.eresource:nexisuni">Nexis Uni</a></li>  
+                            <li> <a href="http://nrs.harvard.edu/urn-3:hul.eresource:oxfrdbib">Oxford Bibliographies Online</a></li>    
+                            <li> <a href="http://nrs.harvard.edu/urn-3:hul.eresource:projmuse">Project Muse</a></li>      
+                            <li> <a href="http://nrs.harvard.edu/urn-3:hul.eresource:psycinfo">PsycINFO</a></li>    
+                            <li> <a href="http://nrs.harvard.edu/urn-3:hul.eresource:pubmedpi">PubMed</a></li>    
+                            <li> <a href="http://nrs.harvard.edu/urn-3:hul.eresource:srmo">Sage Research Methods</a></li>     
+                            <li> <a href="http://nrs.harvard.edu/urn-3:hul.eresource:socscicoll">Social Science Premium Collection (ProQuest)</a></li>   
+                            <li> <a href="http://nrs.harvard.edu/urn-3:hul.eresource:statuniv">Statistical Insight</a></li>     
+                            <li> <a href="http://nrs.harvard.edu/urn-3:hul.eresource:scicitin">Web of Science</a></li>   
+                            <li> <a href="http://nrs.harvard.edu/urn-3:hul.eresource:worldcat">Worldcat (FirstSearch)</a></li>   
+                            <li> <a href="http://nrs.harvard.edu/urn-3:hul.eresource:openworldcat">Worldcat (Worldcat.org)</a></li>   
+                    </ul>
+                    <ul class="dbase_list">
+                        </ul>
+                </md-card-content>
+        </md-card>
+    </div>
 </md-content>

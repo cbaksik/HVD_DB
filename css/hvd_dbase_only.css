@@ -69,3 +69,6 @@ div#getit_link1_1 {
 #services-index button[aria-label*="Get It"] {
     display:none;
 }
+span[data-details-label="lds48"]:after{
+    content:" ⇒";
+}
