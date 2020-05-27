@@ -43,6 +43,11 @@ md-backdrop.md-opaque {
 .md-headline {
     font-weight:400;
 }
+@media (max-width: 599px) {
+    prm-static[section="homepage"] .flex-60, .layout-row>.flex-60, .flex-40, .layout-row>.flex-40  {
+        max-width:100%;
+    }
+}
 md-card.default-card {
     box-shadow;1px 1px 0px 1px rgba(0,0,0,.03), 0px 5px 5px -3px rgba(0,0,0,.07)
     padding-bottom: 10px;
@@ -57,6 +62,11 @@ portal basic link: #0579b8
 /*md-content.md-primoExplore-theme md-dialog.light-on-dark-dialog {
     background-color: rgba(56,56,61,.5);
  }*/
+ @media (max-width: 599px) {
+    prm-main-menu[menu-type=full] .overlay-menu-item  {
+        padding:0px;
+    }
+}
  md-content.overlay-menu-content {
     background-color: rgba(56,56,61,.7);
 }
@@ -95,6 +105,12 @@ prm-favorites-tool-bar #prm_unpin {
 /* prm-favorites-tool-bar button.unpin-button::after { 
     content: "!";
 } */
+/* mobile search bar area */
+@media (max-width: 599px) {
+    prm-tabs-and-scopes-selector {
+        border: 1px solid darkgrey;
+    }
+}
 /* alert bar e.g. sign in prompt above results */
 .bar.alert-bar {
     letter-spacing: 1px;
@@ -183,6 +199,31 @@ prm-facet prm-breadcrumbs .md-chips .md-chip {
     background-color:#f3f3f3;
     box-shadow: 0 1px 0 0 rgba(0,0,0,.2), 0 5px 5px -3px rgba(0,0,0,.2);
 }
+/* prm-facet  prm-breadcrumbs .md-chips .md-chip.persistent-facet {
+    background-color: #fffcc4;
+} */
+prm-breadcrumbs .md-chip.wrapping-chip .md-chip-content strong
+{    
+    padding-left: 30px;
+}
+
+prm-breadcrumbs .md-chips .md-chip-content .persistence-button {
+    opacity: 1; transform: none; padding-left: -2px;
+}
+
+prm-breadcrumbs .md-chip.persistent-facet strong {
+    padding-left: 0;
+}
+
+prm-breadcrumbs .md-chip.persistent-facet .md-chip-content .persistence-button {
+    left: -2px;
+}
+
+prm-breadcrumbs .md-chips .md-chip-content .persistence-button prm-icon.show-on-hover {
+    position: absolute;
+    top: 5px;
+    left: 9px;
+}
 prm-search-result-sort-by {
     margin-bottom:5px;
 }
@@ -250,6 +291,55 @@ div#services-index {
     display:none;
 }
 /* action list */
+@media (max-width: 599px) {
+    custom-sms {
+        width:105px;
+    }
+    md-nav-bar .md-nav-item:first-of-type {
+        margin-left: 0x;
+    }
+    .marg-nav-item {
+        margin-left: 0;
+    }
+    prm-action-list md-icon {
+        width:auto;
+    }
+    prm-search-result-tool-bar .action-list-content prm-action-list {
+        background-color:#f3f3f3;
+    }
+    prm-search-result-tool-bar div.md-nav-bar {
+        margin-bottom:40px;
+    }
+    prm-action-list.visible .md-nav-item {
+        height:85px;
+    }
+    prm-action-list nav {
+        padding-top:.5em;
+    }
+    prm-search-result-list div.mobile-actions .button-as-link-mobile {
+        margin-right:20px;
+    }
+    prm-add-query-to-saved-searches .button-as-link-mobile {
+        margin-left:25px;
+    }
+    md-toolbar .md-button:only-child, md-toolbar.md-primoExplore-theme .md-button:only-child, md-toolbar:not(.md-menu-toolbar) .md-button:only-child {
+        margin-left:15px;
+        margin-right:20px;
+    }
+}
+.__xs prm-search-result-tool-bar .action-list-content>md-content {
+    height:100vh;
+    background-color:#f3f3f3;
+    position:relative;
+    padding-top: 30px;
+}
+button[arial-label="Close actions options"] {
+    padding-top:30px;
+}
+span[translate="nui.aria.fulldisplay.closeButton.short"] {
+    margin: 10px;
+    display: block;
+}
 button#textsms {
     font-size: 10px;
     line-height: 14px;
@@ -324,6 +414,15 @@ prm-action-list .md-button:hover:not([disabled]), prm-action-list .md-button:foc
     border: 2px solid #44707b;
 }
 /* advanced search */
+@media (max-width: 599px) {
+    prm-advanced-search md-divider {
+        display:none;
+    }
+    /* Feb 2020 release added an Adv Search button to OTB overlay menu but it duplicates our menu option so we need to hide it to avoid redundant option -- CB */
+    prm-main-menu md-content.overlay-menu-content button[aria-label="ADVANCED SEARCH"] {
+        display:none;
+    }
+}
 prm-advanced-search button:focus {
     border:1px solid #1e1e1e;
 }
@@ -538,4 +637,11 @@ prm-brief-result-container .list-item-primary-content md-checkbox ._md-icon {
 }
 prm-search-result-tool-bar md-toolbar .main-checkbox {
     margin-left: 7px;
+}
+/* via images */
+.hvdImgComponentView {
+    margin-left:25px;
+}
+.hvdImgComponentViewMD {
+    width:90%;
 }
