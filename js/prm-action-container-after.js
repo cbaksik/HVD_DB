@@ -1,5 +1,6 @@
 /**
  * Created by samsan on 8/16/17.
+ * for custom text call number feature
  */
 
 
@@ -16,14 +17,19 @@ angular.module('viewCustom')
         vm.form={'phone':'','deviceType':'','body':'','error':'','mobile':false,'msg':'','token':'','ip':'','sessionToken':'','isLoggedIn':false,'iat':'','inst':'','vid':'','exp':'','userName':'','iss':'','onCampus':false};
         vm.css = {'class':'textsms-info'};
 
+        // not sure why this is here, does it belong in prm-auth...after.js where login stauts is tested? -- CB
         vm.$onChanges=function(){
             vm.auth=cisv.getAuth();
+            //console.log("prm-action-container-after.js");
+            //console.log(vm.auth);
             if(vm.auth.primolyticsService.jwtUtilService) {
                 vm.form.token=vm.auth.primolyticsService.jwtUtilService.storageUtil.sessionStorage.primoExploreJwt;
                 vm.form.sessionToken=vm.auth.primolyticsService.jwtUtilService.storageUtil.localStorage.getJWTFromSessionStorage;
                 vm.form.isLoggedIn=vm.auth.isLoggedIn;
                 // decode JWT Token to see if it is a valid token
-                let obj=vm.auth.authenticationService.userSessionManagerService.jwtUtilService.jwtHelper.decodeToken(vm.form.token);
+                // CB  commenting out line below per CV, troubleshooting token issue with texting service
+                //let obj=vm.auth.authenticationService.userSessionManagerService.jwtUtilService.jwtHelper.decodeToken(vm.form.token);
+                let obj=vm.auth.userSessionManagerService.jwtUtilService.jwtHelper.decodeToken(vm.form.token);
                 vm.form.ip=obj.ip;
                 vm.form.iss=obj.iss;
                 vm.form.userName=obj.userName;
@@ -161,7 +167,7 @@ angular.module('viewCustom')
                                    var data = JSON.parse(result.data.msg);
                                    data = data.data.message[0];
                                    if (data.accepted) {
-                                       vm.form.msg = 'The message sent to ' + vm.temp.phone + '.';
+                                       vm.form.msg = 'The message was sent to ' + vm.temp.phone + '.';
                                        vm.css.class='textsms-info';
                                    } else {
                                        vm.form.msg = 'We were unable to send this message. There was a problem with the phone number.';
