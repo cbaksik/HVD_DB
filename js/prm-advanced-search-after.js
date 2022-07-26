@@ -29,7 +29,7 @@ angular.module('viewCustom')
 
         vm.$onInit=()=>{
             setTimeout(()=>{
-                let el=$element[0].parentNode.childNodes[0].children[0].children[0].children[0];
+                let el=$element[0].parentNode.childNodes[0].children[0].children[1].children[0];
                 let checkbox=document.createElement('custom-radio');
                 checkbox.setAttribute('parent-ctrl','vm.parentCtrl');
                 el.appendChild(checkbox);
@@ -41,12 +41,16 @@ angular.module('viewCustom')
         vm.$doCheck=()=>{
             // get checkbox value of true or false when a user click on barcode checkbox
             vm.form.flag=vm.parentCtrl.selectedBarcode;
-            let el=$element[0].parentNode.childNodes[0].children[0].children[1];
+            let el=$element[0].parentNode.childNodes[0].children[0].children[1].children[2];
             if(el) {
                 if(vm.form.flag && vm.parentCtrl.selectedSearchTab=='') {
                     el.style.display='none';
+                    //$element[0].parentNode.childNodes[0].children[0].children[1].children[2].style.display='none';
+                    $element[0].parentNode.childNodes[0].children[0].children[2].style.display='none';
+                    //console.log(el);
                 } else {
                     el.style.display='inline-flex';
+                    $element[0].parentNode.childNodes[0].children[0].children[2].style.display='inline-flex';
                     vm.form.flag=false;
                 }
             }
@@ -72,5 +76,5 @@ angular.module('viewCustom')
         bindings:{parentCtrl:'<'},
         controller: 'prmAdvancedSearchAfterCtrl',
         controllerAs:'vm',
-        templateUrl:'/primo-explore/custom/HVD2/html/prm-advanced-search-after.html'
+        templateUrl:'/primo-explore/custom/HVD_DB/html/prm-advanced-search-after.html'
     });

@@ -4,9 +4,8 @@
 
 
 angular.module('viewCustom')
-    .controller('prmSearchResultAvailabilityLineAfterCtrl',['customMapService','$timeout','customHathiTrustService','customService','customGoogleAnalytic','$q','prmSearchService',function (customMapService,$timeout, customHathiTrustService,customService, customGoogleAnalytic, $q, prmSearchService) {
+    .controller('prmSearchResultAvailabilityLineAfterCtrl',['customMapService','$timeout','customHathiTrustService','customService','$q','prmSearchService',function (customMapService,$timeout, customHathiTrustService,customService, $q, prmSearchService) {
         var vm=this;
-        var cga=customGoogleAnalytic;
         var custService=customService;
         var cs=customMapService;
         var chts=customHathiTrustService;
@@ -17,47 +16,58 @@ angular.module('viewCustom')
         vm.TOC = {'type':'01HVD_ALMA','isbn':[],'display':false};
         vm.itemPNX={};
         vm.hathiTrust={};
+        vm.FAlink='';
         var map;
+        var tocUrl = 'https://secure.syndetics.com/index.aspx?isbn=';
+        //var tocUrl = 'https://secure.syndetics.com/index.aspx?isbn=9780674055360/xml.xml&client=harvard&type=xw10';
+        // for testing : var tocUrlBad = 'https://secure.syndetics.com/index.aspx?isbn=2939848394/xml.xml&client=harvard&type=xw10';
+
 
         // find if pnx has table of content
         vm.findTOC=function () {
-          if(vm.itemPNX.pnx.control.sourceid[0]===vm.TOC.type && vm.itemPNX.pnx.addata.isbn) {
-              if(vm.itemPNX.pnx.addata.isbn.length > 0) {
-                  var listRequest=[];
-                  for(var i=0; i < vm.itemPNX.pnx.addata.isbn.length; i++) {
-                      var param={'isbn':'','hasData':false};
-                      param.isbn = vm.itemPNX.pnx.addata.isbn[i];
-                      var post = custService.postData(vm.api.tocUrl,param);
-                      listRequest.push(post);
-                  }
-                  // put everything into a list of queue call
-                  var ajax = $q.all(listRequest);
-                  ajax.then(
-                      function (response) {
-                          for(var k=0; k < response.length; k++) {
-                              var data = response[k].data;
-                              var xmldata = prmsv.parseXml(data.result);
-                              if(xmldata.ssi) {
-                                // it has table of content
-                                if(xmldata.ssi[0].TOC[0]) {
-                                    data.hasData = true;
-                                    vm.TOC.display = data.hasData;
-                                    vm.TOC.isbn = data.isbn;
-                                    k = response.length;
-                                }
-                              } else {
-                                  // it doesn't have table of content
-                                  data.hasData = false;
-                                  vm.TOC.display = data.hasData;
-                              }
-
+            if (vm.itemPNX.pnx.control.sourceid[0] === vm.TOC.type && vm.itemPNX.pnx.addata.isbn) {
+                var param={'isbn':'','hasData':false};
+                //console.log("test for toc");
+                param.isbn = vm.itemPNX.pnx.addata.isbn[0];
+                 /* fetch chained response to get data (first response is not actual data yet) */
+                    fetch(tocUrl+param.isbn+'/xml.xml&client=harvard&type=xw10', {                        
+                        method: 'GET',
+                        headers: {
+                            'Accept': '*/*'
+                            //'Content-Type': 'text/xml; charset=UTF-8',
+                            // 'Accept':'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',                           
+                            //'Access-Control-Allow-Origin': '*/*' ,     
+                            //'Access-Control-Request-Headers': '*/*'
                           }
-                      },
-                      function (error) {
-                          console.log(error);
-                      }
-                  )
-              }
+                      })
+                        .then(function (response) {
+                            //console.log(response);
+                            //console.log(response.headers); 
+                            return response.text();
+                        })
+                        .then(function (data) {                                                      
+                            if (data.substr(0,5) == '<?xml') {                                
+                                vm.TOC.display = true;
+                                vm.TOC.isbn = param.isbn;
+                            }
+                        })
+                        .catch(function (err) {
+                            console.log("Syndetics call did not work", err);
+                        });
+          }
+        };
+
+        // find if pnx had EAD finding aid link
+        vm.findFindingAid=function () {
+            var ead = '';
+            var eadURN = '';
+            if (vm.itemPNX.pnx.links.linktofa) {
+                ead = vm.itemPNX.pnx.links.linktofa[0];
+                ead=ead.slice(3);
+                eadURN = ead.replace(' $$Elinktofa','');
+                console.log(eadURN);
+                vm.FAlink=eadURN;
+                // console.log(vm.FAlink);
           }
         };
 
@@ -103,19 +113,18 @@ angular.module('viewCustom')
         };
 
         vm.getHathiTrustData=function () {
-            if(vm.api.hathiTrustUrl) {
-                chts.doPost(vm.api.hathiTrustUrl, vm.hathiTrust)
-                    .then(function (data) {
-                            if (data.data.items) {
-                                vm.hathiTrustItem = chts.validateHarvard(data.data.items);
-                            }
-                        },
-                        function (error) {
-                            console.log(error);
+            chts.doGet(vm.hathiTrust.isbn, vm.hathiTrust.oclcid)
+                .then(function (data) {
+                    if (data.data.items) {
+                        vm.hathiTrustItem = chts.validateHarvard(data.data.items);
                         }
-                    )
-            }
+                    },
+                    function (error) {
+                        console.log(error);
+                    }
+                );
         };
+       
 
         vm.$onInit=function() {
             // get rest endpoint url from config.html where it preload prm-tobar-after.js
@@ -123,6 +132,7 @@ angular.module('viewCustom')
             vm.itemPNX=vm.parentCtrl.result;
             // get table of content
             vm.findTOC();
+            vm.findFindingAid();
             if(vm.itemPNX.pnx.display.lds40 && vm.parentCtrl.isFullView) {
                 $timeout(function () {
                     vm.coordinates = cs.buildCoordinatesArray(vm.itemPNX.pnx.display.lds40[0]);
@@ -150,7 +160,7 @@ angular.module('viewCustom')
                             zoomInTitle: 'Zoom in',
                             zoomOutText: '<i class="iconMapFontSize">-</i>',
                             zoomOutTitle: 'Zoom out',
-                            zoomHomeText: '<img class="iconHome" src="/primo-explore/custom/HVD2/img/ic_home_black_18px.svg"/>',
+                            zoomHomeText: '<img class="iconHome" src="/primo-explore/custom/HVD_DB/img/ic_home_black_18px.svg"/>',
                             zoomHomeTitle: 'Zoom home'
                         },
 
@@ -185,7 +195,6 @@ angular.module('viewCustom')
                             this._map.zoomOut(e.shiftKey ? 3 : 1);
                             if(vm.itemPNX.pnx.display) {
                                 var title = 'zoom-out: ' + vm.itemPNX.pnx.display.title[0];
-                                cga.setPage('user-use-openMapStreet', title);
                             }
                         },
 
@@ -263,5 +272,5 @@ angular.module('viewCustom')
         bindings:{parentCtrl:'<'},
         controller: 'prmSearchResultAvailabilityLineAfterCtrl',
         controllerAs:'vm',
-        templateUrl:'/primo-explore/custom/HVD2/html/prm-search-result-availability-line-after.html'
+        templateUrl:'/primo-explore/custom/HVD_DB/html/prm-search-result-availability-line-after.html'
     });

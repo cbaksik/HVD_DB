@@ -1,10 +1,12 @@
 /**
  * Created by samsan on 2/8/18.
  * This component get aeon (alma) data by passing mss_id in rest url
+ * 
+ * aeon test url = https://aeontest.hul.harvard.edu/logon?action=10&form=30&sid=Via AEON
  */
 
 angular.module('viewCustom')
-    .controller('customAeonCtrl',['customService','$scope',function (customService, $scope) {
+    .controller('customAeonCtrl',['customService','$scope','$stateParams',function (customService, $scope, $stateParams) {
         var sv=customService;
         var vm=this;
         vm.api=sv.getApi();
@@ -24,7 +26,8 @@ angular.module('viewCustom')
             }
 
             // get question mark parameters
-            vm.params=vm.parentCtrl.$location.$$search;
+            vm.mmsid=$stateParams.mmsid;
+            
             // watch for api variable changing
             $scope.$watch('vm.api.aeonApiUrl',()=> {
                 vm.getData();
@@ -34,7 +37,7 @@ angular.module('viewCustom')
 
         // build url to send to aeon
         var buildUrl=function (data,item) {
-            let url='https://aeontest.hul.harvard.edu/logon?action=10&form=30&sid=Via AEON';
+            let url='https://aeon.hul.harvard.edu/logon?action=10&form=30&sid=Via AEON';
             let keyList=Object.keys(data);
             for(let key of keyList) {
                 let val = data[key];
@@ -68,6 +71,9 @@ angular.module('viewCustom')
                 if (key==='author' || key==='title' || key==='genre' || key==='publisher') {
                     url += '&'+key+'=' + value;
                 }
+                if (key==='dateOfPublication') {
+                    url += '&date=' + value;
+                }
                 if(key==='mmsId') {
                     url += '&hollisnum='+value;
                 }
@@ -81,9 +87,9 @@ angular.module('viewCustom')
         };
         // get data from primo-service
         vm.getData=()=>{
-            if(vm.api.aeonApiUrl && vm.params) {
+            if(vm.api.aeonApiUrl && vm.mmsid) {
                 vm.ajaxLoader=true;
-                let url = vm.api.aeonApiUrl + '/' + vm.params['mmsid'];
+                let url = vm.api.aeonApiUrl + '/' + vm.mmsid;
                 sv.getAjax(url, '', 'get')
                     .then((res) => {
                         let data=res.data;
@@ -128,5 +134,5 @@ angular.module('viewCustom')
         bindings:{parentCtrl:'<'},
         controller: 'customAeonCtrl',
         controllerAs:'vm',
-        templateUrl:'/primo-explore/custom/HVD2/html/custom-aeon.html'
+        templateUrl:'/primo-explore/custom/HVD_DB/html/custom-aeon.html'
     });

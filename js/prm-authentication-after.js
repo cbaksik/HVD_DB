@@ -1,9 +1,10 @@
 /**
  * Created by samsan on 8/7/17.
  */
+/* 20201125 at some point in the last year one of the releases changed such that prm-authentication-after doesn't exist when you open HOLLIS home page, it's only created after an initial search; therefore none of the code below was being called yet when initially loading the home page, which meant that the alert wasn't appearing. CB changed component and controller to something that does exist when you load home page, and that we're not using yet. I left this file name the same though */
 
 angular.module('viewCustom')
-    .controller('prmAuthenticationAfterController', ['customService','prmSearchService', function (customService, prmSearchService) {
+    .controller('prmTopNavBarLinksAfterController', ['customService','prmSearchService', function (customService, prmSearchService) {
         let vm=this;
         let psv = prmSearchService;
         // initialize custom service search
@@ -12,9 +13,9 @@ angular.module('viewCustom')
         // get rest endpoint Url
         vm.getUrl=function () {
             var config = sv.getEnv();
-            sv.getAjax('/primo-explore/custom/HVD2/html/' + config,'','get')
-                .then(function (res) {
-                        vm.api=res.data;
+            sv.getAjax('/primo-explore/custom/HVD_DB/html/' + config,'','get')
+                .then(function (res) {    
+                    vm.api=res.data;
                         sv.setApi(vm.api);
                         vm.getClientIP();
                     },
@@ -45,10 +46,20 @@ angular.module('viewCustom')
                 vm.form.sessionToken=vm.auth.primolyticsService.jwtUtilService.storageUtil.localStorage.getJWTFromSessionStorage;
                 vm.form.isLoggedIn=vm.auth.isLoggedIn;
                 // decode JWT Token to see if it is a valid token
-                let obj=vm.auth.authenticationService.userSessionManagerService.jwtUtilService.jwtHelper.decodeToken(vm.form.token);
+                //let obj=vm.auth.authenticationService.userSessionManagerService.jwtUtilService.jwtHelper.decodeToken(vm.form.token);
+                let obj=vm.auth.userSessionManagerService.jwtUtilService.jwtHelper.decodeToken(vm.form.token);
                 vm.form.ip=obj.ip;
+                if(vm.auth.isLoggedIn) {
+                    // user is login
+                    vm.form.status=true;
+                    let status={'ip':'0.0.0.0','status':true};
+                    psv.setClientIp(status);
+                    psv.setLogInID(vm.auth.isLoggedIn);
+                } else {
+                    // user is not login
+                    vm.validateIP();
+                }
 
-                vm.validateIP();
             }
         };
 
@@ -68,10 +79,8 @@ angular.module('viewCustom')
 
     }]);
 
-
-
 angular.module('viewCustom')
-    .component('prmAuthenticationAfter', {
+    .component('prmTopNavBarLinksAfter', {
         bindings: {parentCtrl: '<'},
-        controller: 'prmAuthenticationAfterController'
-    });
+        controller: 'prmTopNavBarLinksAfterController'
+    });    

@@ -14,6 +14,9 @@ prm-alert-bar {
     font-weight: normal;
     margin: 15px 0px 15px 8px;
 }
+#dbase_homepage {
+    max-width: 945px;
+}
 #dbase_homepage > div {
     max-width: 100%;
 }

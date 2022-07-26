@@ -1,20 +1,26 @@
-<div ng-if="vm.TOC.display">
-    <a href="http://syndetics.com/index.aspx?isbn={{vm.TOC.isbn}}/TOC.HTML&client=harvard&type=rn12" target="_blank">
-        <md-icon  icon-type="svg" md-svg-src="/primo-explore/custom/HVD2/img/ic_list_black_24px.svg"></md-icon>
-        <span>Table of Contents</span>
-        <prm-icon link-arrow icon-type="svg" svg-icon-set="primo-ui" icon-definition="chevron-right"></prm-icon>
+<!-- start browzine code from vendor
+https://gist.githubusercontent.com/tiandavis/55278e338bd1f086a049df762d3f32b5/raw/a2aabd93c172f22f99ae06185178384cdc6b3186/prm-search-result-availability-line-after.html
+--> 
+<browzine parent-ctrl="vm.parentCtrl"></browzine>
+
+<!-- end browzine code from vendor --> 
+
+<div ng-if="vm.hathiTrustItem.orig" class="hvdHathiViewOnline_div">
+    <a ng-if="vm.hathiTrustItem.fullview" href="{{vm.hathiTrustItem.itemURL}}" target="_blank" class="hvdHathiViewOnline">
+        <span>Online Access</span>
+    </a>
+    <a ng-if="!vm.hathiTrustItem.fullview" href="{{vm.hathiTrustItem.itemURL}}" target="_blank">        
+        <span ng-if="!vm.hathiTrustItem.fullview">Limited search in HathiTrust</span>  
     </a>
 </div>
 
-<div ng-if="vm.hathiTrustItem.orig">
-    <a href="{{vm.hathiTrustItem.itemURL}}" target="_blank">
-        <prm-icon availability-type icon-type="svg" svg-icon-set="primo-ui" icon-definition="link"></prm-icon>
-        <span ng-if="vm.hathiTrustItem.fullview">View online in HathiTrust</span>
-        <span ng-if="!vm.hathiTrustItem.fullview">Limited search in HathiTrust</span>
-        <prm-icon external-link icon-type="svg" svg-icon-set="primo-ui" icon-definition="open-in-new"></prm-icon>
-        <prm-icon link-arrow icon-type="svg" svg-icon-set="primo-ui" icon-definition="chevron-right"></prm-icon>
+<div ng-if="vm.TOC.display" class="hvd_TOC_link">
+    <a href="https://secure.syndetics.com/index.aspx?isbn={{vm.TOC.isbn}}/TOC.HTML&client=harvard&type=rn12" target="_blank">
+        <span>Table of Contents</span>        
     </a>
 </div>
+
+
 
 <div ng-if="vm.parentCtrl.isFullView && vm.itemPNX.pnx.display.lds40">
     <div class="bold-text">Geographic coverage</div>
@@ -22,3 +28,14 @@
 </div>
 
 <prm-open-journal-in-full parent-ctrl="vm.parentCtrl"></prm-open-journal-in-full>
+
+<!-- end browzine code from vendor , per https://github.com/ayBayClay/HVD_DB--> 
+<prm-sm-more-records parent-ctrl="vm.parentCtrl"></prm-sm-more-records> 
+
+
+<div ng-if="vm.FAlink" class="hvd_EAD_link">
+    <a href="{{vm.FAlink}}">
+        <img src="/primo-explore/custom/HVD_DB/img/folder_open_white_24dp.svg" aria-label="Finding Aid"></img>
+        <span>Finding Aid</span>        
+    </a>
+</div>

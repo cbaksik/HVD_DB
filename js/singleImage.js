@@ -6,7 +6,7 @@
 
 angular.module('viewCustom')
     .component('singleImage', {
-        templateUrl:'/primo-explore/custom/HVD2/html/singleImage.html',
+        templateUrl:'/primo-explore/custom/HVD_DB/html/singleImage.html',
         bindings: {
           src:'<',
           imgtitle: '<',
@@ -14,7 +14,7 @@ angular.module('viewCustom')
           jp2:'<'
         },
         controllerAs:'vm',
-        controller:['$element','$window','$location','prmSearchService','$timeout','$sce',function ($element,$window,$location,prmSearchService, $timeout,$sce) {
+        controller:['$element','$window','$location','prmSearchService','$timeout','$sce','$scope',function ($element,$window,$location,prmSearchService, $timeout,$sce,$scope) {
             var vm=this;
             var sv=prmSearchService;
             // set up local scope variables
@@ -24,39 +24,25 @@ angular.module('viewCustom')
             vm.localScope={'imgClass':'','loading':true,'hideLockIcon':false};
             vm.isLoggedIn=sv.getLogInID();
             vm.clientIp=sv.getClientIp();
+            //console.log("singleImage.js");
 
             // check if image is not empty and it has width and height and greater than 150, then add css class
             vm.$onChanges=function () {
                 vm.clientIp=sv.getClientIp();
                 vm.isLoggedIn=sv.getLogInID();
 
+                // CB 20200601 made showImage true b/c login test is failing so it never shows image
                 if(vm.restricted && !vm.isLoggedIn && !vm.clientIp.status) {
-                    vm.showImage=false;
+                    //vm.showImage=false;
+                    vm.showImage=true;
+                    //console.log('Restrict image: A user is not login or client IP address is not in  the list');
                 }
+                
                 vm.localScope={'imgClass':'','loading':true,'hideLockIcon':false};
                 if(vm.src && vm.showImage) {
-                    if(vm.jp2===true) {
-                        var url = sv.getHttps(vm.src) + '?buttons=Y';
-                        vm.imageUrl = $sce.trustAsResourceUrl(url);
-                    } else {
-                        vm.imageUrl=vm.src;
-                        $timeout(function () {
-                            var img=$element.find('img')[0];
-                            // use default image if it is a broken link image
-                            var pattern = /^(onLoad\?)/; // the broken image start with onLoad
-                            if(pattern.test(vm.src)) {
-                                img.src='/primo-explore/custom/HVD2/img/icon_image.png';
-                            }
-                            img.onload=vm.callback;
-                            if(img.width > 600) {
-                                vm.callback();
-                            }
-                        },300);
-                    }
-                } else {
-                    vm.imageUrl='';
+                    const url = sv.getHttps(vm.src) + '?buttons=Y';
+                    vm.imageUrl = $sce.trustAsResourceUrl(url);
                 }
-
                 vm.localScope.loading=false;
 
             };
@@ -82,7 +68,8 @@ angular.module('viewCustom')
                 params.vid=vm.params.vid;
                 params.targetURL=$window.location.href;
                 var url='/primo-explore/login?from-new-ui=1&authenticationProfile='+auth.authenticationMethods[0].profileName+'&search_scope=default_scope&tab=default_tab';
-                url+='&Institute='+auth.authenticationService.userSessionManagerService.userInstitution+'&vid='+params.vid;
+                //url+='&Institute='+auth.authenticationService.userSessionManagerService.userInstitution+'&vid='+params.vid;
+                url+='&Institute='+auth.userSessionManagerService.userInstitution+'&vid='+params.vid;
                 if(vm.params.offset) {
                     url+='&offset='+vm.params.offset;
                 }

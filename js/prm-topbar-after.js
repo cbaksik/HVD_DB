@@ -6,13 +6,10 @@
 (function () {
 
     angular.module('viewCustom')
-    .controller('prmTopbarAfterCtrl',['$timeout','customGoogleAnalytic',function ($timeout, customGoogleAnalytic) {
+    .controller('prmTopbarAfterCtrl',['$timeout',function ($timeout) {
         var vm=this;
-        var cga=customGoogleAnalytic;
 
         vm.$onInit=function() {
-            // initialize google analytic
-            cga.init();
 
             $timeout(function () {
                 // create script tag link leafletJS.com to use openstreetmap.org
@@ -42,7 +39,7 @@
         bindings:{parentCtrl:'<'},
         controller: 'prmTopbarAfterCtrl',
         controllerAs:'vm',
-        templateUrl:'/primo-explore/custom/HVD2/html/prm-topbar-after.html'
+        templateUrl:'/primo-explore/custom/HVD_DB/html/prm-topbar-after.html'
     });
 
 })();

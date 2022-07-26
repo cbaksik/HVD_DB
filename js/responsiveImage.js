@@ -6,7 +6,7 @@
 
 angular.module('viewCustom')
     .component('responsiveImage', {
-        templateUrl:'/primo-explore/custom/HVD2/html/responsiveImage.html',
+        templateUrl:'/primo-explore/custom/HVD_DB/html/responsiveImage.html',
         bindings: {
           src:'<',
           imgtitle: '<',
@@ -21,6 +21,7 @@ angular.module('viewCustom')
             vm.params=$location.search();
             vm.localScope={'imgClass':'','loading':true,'hideLockIcon':false};
             vm.isLoggedIn=sv.getLogInID();
+            console.log("responsiveImage.js");
 
             // check if image is not empty and it has width and height and greater than 150, then add css class
             vm.$onChanges=function () {
@@ -36,7 +37,7 @@ angular.module('viewCustom')
                         // use default image if it is a broken link image
                         var pattern = /^(onLoad\?)/; // the broken image start with onLoad
                         if(pattern.test(vm.src)) {
-                            img.src='/primo-explore/custom/HVD2/img/icon_image.png';
+                            img.src='/primo-explore/custom/HVD_DB/img/icon_image.png';
                         }
                         img.onload=vm.callback;
                         if(img.width > 50) {
@@ -69,7 +70,8 @@ angular.module('viewCustom')
                 params.vid=vm.params.vid;
                 params.targetURL=$window.location.href;
                 var url='/primo-explore/login?from-new-ui=1&authenticationProfile='+auth.authenticationMethods[0].profileName+'&search_scope=default_scope&tab=default_tab';
-                url+='&Institute='+auth.authenticationService.userSessionManagerService.userInstitution+'&vid='+params.vid;
+                //url+='&Institute='+auth.authenticationService.userSessionManagerService.userInstitution+'&vid='+params.vid;
+                url+='&Institute='+auth.userSessionManagerService.userInstitution+'&vid='+params.vid;
                 if(vm.params.offset) {
                     url+='&offset='+vm.params.offset;
                 }

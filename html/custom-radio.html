@@ -1,4 +1,44 @@
+<div class="input-cell layout-wrap layout-align-start-center layout-row" layout="row" layout-wrap=""
+    layout-align="start center">
+    <md-radio-group layout="row" (click)="vm.check()" [ngModel]="vm.form.checked" class="ng-valid layout-wrap _md md-primoExplore-theme ng-not-empty layout-row ng-dirty ng-valid-parse ng-touched">
+        <md-radio-button class="md-primary md-primoExplore-theme {{vm.form.class}}">Barcode</md-radio-button>
+    </md-radio-group>
+</div>
 
-<md-radio-group layout="row"  (click)="vm.check()" [ngModel]="vm.form.checked">
-    <md-radio-button  class="md-primary md-primoExplore-theme {{vm.form.class}}">Barcode</md-radio-button>
+
+<md-radio-group aria-labelledby="searchFieldsGroupAdvancedSearch" ng-model="$ctrl.selectedSearchTab" tabindex="0"
+    layout="row" ng-change="$ctrl.changeSearchFields()" aria-hidden="false" layout-wrap=""
+    class="ng-valid layout-wrap _md md-primoExplore-theme ng-not-empty layout-row ng-dirty ng-valid-parse ng-touched"
+    role="radiogroup" aria-invalid="false" aria-activedescendant="radio_651" style="">
+    <!---->
+    <md-radio-button ng-repeat="tab in $ctrl.searchTabs" value="everything" class="md-primary md-primoExplore-theme"
+        aria-label="Catalog &amp; Articles" id="radio_649" role="radio" aria-checked="false">
+        <div class="md-container md-ink-ripple" md-ink-ripple="" md-ink-ripple-checkbox="">
+            <div class="md-off"></div>
+            <div class="md-on"></div>
+        </div>
+        <div ng-transclude="" class="md-label"><span translate="tabbedmenu.everything.label">Catalog &amp;
+                Articles</span></div>
+    </md-radio-button>
+    <!---->
+    <md-radio-button ng-repeat="tab in $ctrl.searchTabs" value="books"
+        class="md-primary md-primoExplore-theme md-checked" aria-label="Library Catalog" id="radio_651" role="radio"
+        aria-checked="true">
+        <div class="md-container md-ink-ripple" md-ink-ripple="" md-ink-ripple-checkbox="">
+            <div class="md-off"></div>
+            <div class="md-on"></div>
+        </div>
+        <div ng-transclude="" class="md-label"><span translate="tabbedmenu.books.label">Library Catalog</span></div>
+    </md-radio-button>
+    <!---->
+    <md-radio-button ng-repeat="tab in $ctrl.searchTabs" value="reserves" class="md-primary md-primoExplore-theme"
+        aria-label="Reserves (Books &amp; Media)" id="radio_653" role="radio" aria-checked="false">
+        <div class="md-container md-ink-ripple" md-ink-ripple="" md-ink-ripple-checkbox="">
+            <div class="md-off"></div>
+            <div class="md-on"></div>
+        </div>
+        <div ng-transclude="" class="md-label"><span translate="tabbedmenu.reserves.label">Reserves (Books &amp;
+                Media)</span></div>
+    </md-radio-button>
+    <!---->
 </md-radio-group>

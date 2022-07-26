@@ -2,7 +2,6 @@
  * Created by samsan on 11/16/17.
  * It display the recommend resource above the search result list - search for fake news
  * It insert harvard shield in front of the word if resourceType is library_guide
- * 
  */
 
 angular.module('viewCustom')
@@ -26,6 +25,6 @@ angular.module('viewCustom')
         bindings:{parentCtrl:'<'},
         controller: 'prmResourceRecommenderCardContentAfterCtrl',
         controllerAs:'vm',
-        templateUrl:'/primo-explore/custom/HVD2/html/prm-resource-recommender-card-content-after.html'
+        templateUrl:'/primo-explore/custom/HVD_DB/html/prm-resource-recommender-card-content-after.html'
     });
 

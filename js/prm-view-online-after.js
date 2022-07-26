@@ -1,7 +1,7 @@
 /**
  * Created by samsan on 5/17/17.
- * This component is to insert images into online section and book covers.
- * If pnx.display.lds41 exist, it will display book covers. Then hide image view.
+ * This component is to insert images into online section and Scanned Key Content.
+ * If pnx.display.lds41 exist, it will display scanned key content. 
  */
 
 (function () {
@@ -18,12 +18,14 @@
         vm.zoomButtonFlag=false;
         vm.viewAllComponetMetadataFlag=false;
         vm.singleImageFlag=false;
-        vm.photo = {}; // single imae
+        vm.photo = {}; // single image
         vm.jp2 = false;
         vm.imageTitle = '';
         vm.auth = sv.getAuth();
         vm.gridColumn='3'; // default print view size
-
+        vm.pnxControlSourceId='HVD_VIA'; // display only pnx control sourceid of HVD_VIA
+        vm.pnxControlSourceIdFlag=false;
+        //console.log("prm-view-online-after.js");
 
         vm.$onInit=function() {
             vm.isLoggedIn=sv.getLogInID();
@@ -32,6 +34,11 @@
            vm.item=itemData.item;
            if(vm.item.pnx.addata.mis1) {
                vm.item.mis1Data=sv.getXMLdata(vm.item.pnx.addata.mis1[0]);
+           }
+           if(vm.item.pnx.control.sourceid) {
+               if(vm.item.pnx.control.sourceid.indexOf(vm.pnxControlSourceId) !== -1) {
+                   vm.pnxControlSourceIdFlag = true;
+               }
            }
            vm.searchData=itemData.searchData;
            vm.searchData.sortby=vm.params.sortby;

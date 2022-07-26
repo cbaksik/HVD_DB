@@ -22,5 +22,5 @@ angular.module('viewCustom')
         bindings:{parentCtrl:'<'},
         controller: 'customSmsCtrl',
         controllerAs:'vm',
-        templateUrl:'/primo-explore/custom/HVD2/html/custom-sms.html'
+        templateUrl:'/primo-explore/custom/HVD_DB/html/custom-sms.html'
     });
